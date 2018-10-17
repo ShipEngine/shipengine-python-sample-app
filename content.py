@@ -1,0 +1,35 @@
+demoCreds = "ElJkhJuQIRoFq/kDEblco4LpZqRCdYNIoAVG7SywSXw"
+
+introMessage = "\nWelcome to the ShipEngine example app for Python 3!\nWith this program we'll demonstrate how easy it is to get set up with ShipEngine and make use of our API Library.\nFollow the numbered steps in the menu to see how easy it is to work with our APIs."
+
+menu = "\n(1) Connect ShipEngine Account\n(2) Add an Example FedEx Account\n(3) Create a Shipment\n(4) Get Rates for a Shipment\n(5) Print a Shipping Label\n\n(s) Check User Status\n(v) Void a Label\n(q) Quit Program\n"
+
+authFailure = {"carriers":[{"carrier_id": "error","carrier_account":"error","friendly_name":"error","nickname":"error","account_number":"error","primary":"error","has_multi_package_supporting_services":"error"}]}
+
+fedexPayload = {"account_number": "586689126","address1": "2408 Manor Rd","address2": "","city": "Austin","company": "ShipStation","country_code": "US","email": "test@shipstation.com","first_name": "QA","last_name": "Test","phone": "512-484-1234","postal_code": "78722","state": "TX","nickname": "FedEx Parcelcast Account","agree_to_eula": True,"meter_number": "110728259"}
+
+
+addCarrierCallDisplay = "\nENDPOINT:\n[POST] https://api.shipengine.com/v1/connections/carriers/fedex\n\nHEADERS:\n\"Content-Type\": \"application/json\",\n\"Api-Key\": currentKey\n\nJSON PAYLOAD:\n"
+
+fedexDisplayJson = "{\n    \"account_number\": \"586689126\",\n    \"address1\": \"2408 Manor Rd\",\n    \"address2\": \"\",\n    \"city\": \"Austin\",\n    \"company\": \"ShipStation\",\n    \"country_code\": \"US\",\n    \"email\": \"test@shipstation.com\",\n    \"first_name\": \"QA\",\n    \"last_name\": \"Test\",\n    \"phone\": \"512-484-1234\",\n    \"postal_code\": \"78722\",\n    \"state\": \"TX\",\n    \"nickname\": \"FedEx Parcelcast Account\",\n    \"agree_to_eula\": true,\n    \"meter_number\": \"110728259\"\n}\n"
+
+
+createShipmentCallDisplay = "\nENDPOINT:\n[POST] https://api.shipengine.com/v1/shipments\n\nHEADERS:\n\"Content-Type\": \"application/json\",\n\"Api-Key\": currentKey\n\nJSON PAYLOAD:"
+
+exampleShipment1 = {"shipments": [{"validate_address": "no_validation", "ship_to": {"name": "Mickey and Minnie Mouse", "phone": "714-781-4565", "company_name": "The Walt Disney Company", "address_line1": "500 South Buena Vista Street", "city_locality": "Burbank", "state_province": "CA", "postal_code": "91521", "country_code": "US", "address_residential_indicator": "no"}, "ship_from": { "name": "Dade Murphy", "phone": "512-485-4282", "company_name": "Zero Cool", "address_line1": "345 Chambers Street", "address_line2": "Suite 100", "city_locality": "New York City", "state_province": "NY", "postal_code": "10282", "country_code": "US", "address_residential_indicator": "no"}, "confirmation": "none", "advanced_options": {}, "insurance_provider": "none", "tags": [], "packages": [{"weight": {"value": 1.0, "unit": "ounce"}}]}]}
+
+displayExampleShipment1 = "\n{\n \"shipments\": [\n  {\n   \"validate_address\": \"no_validation\",\n   \"ship_to\": {\n    \"name\": \"Mickey and Minnie Mouse\",\n    \"phone\": \"714-781-4565\",\n    \"company_name\": \"The Walt Disney Company\",\n    \"address_line1\": \"500 South Buena Vista Street\",\n    \"city_locality\": \"Burbank\",\n    \"state_province\": \"CA\",\n    \"postal_code\": \"91521\",\n    \"country_code\": \"US\",\n    \"address_residential_indicator\": \"no\"\n   },\n   \"ship_from\": {\n    \"name\": \"Dade Murphy\",\n    \"phone\": \"512-485-4282\",\n    \"company_name\": \"Zero Cool\",\n    \"address_line1\": \"345 Chambers Street\",\n    \"address_line2\": \"Suite 100\",\n    \"city_locality\": \"New York City\",\n    \"state_province\": \"NY\",\n    \"postal_code\": \"10282\",\n    \"country_code\": \"US\",\n    \"address_residential_indicator\": \"no\"\n   },\n   \"confirmation\": \"none\",\n   \"advanced_options\": {},\n   \"insurance_provider\": \"none\",\n   \"tags\": [],\n   \"packages\": [\n    {\n     \"weight\": {\n      \"value\": 1.0,\n      \"unit\": \"ounce\"\n     }\n    }\n   ]\n  }\n ]\n}\n"
+
+exampleShipment2 = {"shipments": [{"validate_address": "validateOnly", "ship_to": {"name": "Jenny Jennifer", "phone": "512-867-5309", "company_name": "Tutone Industries", "address_line1": "3800 N Lamar Blvd", "address_line2": "Suite 220", "city_locality": "Austin", "state_province": "TX", "postal_code": "78756", "country_code": "US", "address_residential_indicator": "no"}, "ship_from": {"name": "CJ McCollum", "phone": "503-797-9600", "company_name": "Rip City LLC", "address_line1": "One Center Court", "address_line2": "Suite 200", "city_locality": "Portland", "state_province": "OR", "postal_code": "97227", "country_code": "US", "address_residential_indicator": "no"}, "confirmation": "delivery", "advanced_options": {}, "insurance_provider": "none", "tags": [], "packages": [{"weight": {"value": 1.0, "unit": "ounce"}}, {"weight": {"value": 4.0, "unit": "ounce"}}]}]}
+
+displayExampleShipment2 = "\n{\n \"shipments\": [\n  {\n   \"validate_address\": \"validateOnly\",\n   \"ship_to\": {\n    \"name\": \"Jenny Jennifer\",\n    \"phone\": \"512-867-5309\",\n    \"company_name\": \"Tutone Industries\",\n    \"address_line1\": \"3800 N Lamar Blvd\",\n    \"address_line2\": \"Suite 220\",\n    \"city_locality\": \"Austin\",\n    \"state_province\": \"TX\",\n    \"postal_code\": \"78756\",\n    \"country_code\": \"US\",\n    \"address_residential_indicator\": \"no\"\n   },\n   \"ship_from\": {\n    \"name\": \"CJ McCollum\",\n    \"phone\": \"503-797-9600\",\n    \"company_name\": \"Rip City LLC\",\n    \"address_line1\": \"One Center Court\",\n    \"address_line2\": \"Suite 200\",\n    \"city_locality\": \"Portland\",\n    \"state_province\": \"OR\",\n    \"postal_code\": \"97227\",\n    \"country_code\": \"US\",\n    \"address_residential_indicator\": \"no\"\n   },\n   \"confirmation\": \"delivery\",\n   \"advanced_options\": {},\n   \"insurance_provider\": \"none\",\n   \"tags\": [],\n   \"packages\": [\n    {\n     \"weight\": {\n      \"value\": 1.0,\n      \"unit\": \"ounce\"\n     }\n    },\n    {\n     \"weight\": {\n      \"value\": 4.0,\n      \"unit\": \"ounce\"\n     }\n    }\n   ]\n  }\n ]\n}\n"
+
+
+getRatesCallDisplay = "\nENDPOINT:\n[POST] https://api.shipengine.com/v1/rates\n\nHEADERS:\n\"Content-Type\": \"application/json\",\n\"Api-Key\": currentKey\n\nJSON PAYLOAD:"
+
+displayExampleRatesJson = "{0}\n    \"shipment_id\": \"{2}\",\n    \"rate_options\": {0}\n      \"carrier_ids\": [\n        \"{3}\"\n      ]\n    {1}\n{1}\n"
+
+
+createLabelCallDisplay = "\nENDPOINT:\n[POST] https://api.shipengine.com/v1/labels/rates/{}\n\nHEADERS:\n\"Content-Type\": \"application/json\",\n\"Api-Key\": currentKey\n\nJSON PAYLOAD:\n"
+
+displayExampleLabelJson = "{0}\n    \"test_label\": {2},\n    \"label_format\": \"pdf\"\n{1}\n"
