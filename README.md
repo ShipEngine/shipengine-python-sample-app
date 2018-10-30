@@ -1,7 +1,7 @@
 ShipEngine Python Sample App
 ====================================
 
-This is a ShipEnine sample app, written in Python 3.  It demonstrates how easy it is to use various parts of the ShipEngine API in Python.
+This is a ShipEngine sample app, written in Python 3.  It demonstrates how easy it is to use various parts of the ShipEngine API in Python.
 
 
 Installation & Usage
